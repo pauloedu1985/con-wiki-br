@@ -1,149 +1,97 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
 import { Link } from 'wouter';
+import { Menu, X, Home, BookOpen, Zap, Target, Rocket, Users, BarChart3, HelpCircle, Calculator, Globe, Building2 } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const navigationItems = [
-  { label: 'Início', href: '/' },
-  {
-    label: 'Iniciante',
-    items: [
-      { label: 'Economia', href: '/economia' },
-      { label: 'Moral', href: '/moral' },
-      { label: 'Anti-Aéreo', href: '/anti-aereo' },
-      { label: 'Mísseis', href: '/misseis' },
-      { label: 'Espiões', href: '/espioes' },
-    ],
-  },
-  {
-    label: 'Avançado',
-    items: [
-      { label: 'Cálculo de Dano', href: '/calculo-dano' },
-      { label: 'Distribuição de Peso', href: '/distribuicao-peso' },
-      { label: 'Fórmula de Recursos', href: '/formula-recursos' },
-      { label: 'Prioridade de Títulos', href: '/prioridade-titulos' },
-    ],
-  },
-  {
-    label: 'Ferramentas',
-    items: [
-      { label: 'Calculadora', href: '/calculadora' },
-      { label: 'Países', href: '/paises' },
-      { label: 'Edifícios', href: '/edificios' },
-    ],
-  },
-  {
-    label: 'Geral',
-    items: [
-      { label: 'FAQ', href: '/faq' },
-      { label: 'Mapa', href: '/mapa' },
-    ],
-  },
-];
-
 export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [expandedSections, setExpandedSections] = useState<string[]>(['Iniciante']);
 
-  const toggleSection = (label: string) => {
-    setExpandedSections((prev) =>
-      prev.includes(label) ? prev.filter((s) => s !== label) : [...prev, label]
-    );
-  };
-
-  const sidebarClass = sidebarOpen ? 'translate-x-0' : '-translate-x-full';
+  const navigationItems = [
+    { icon: Home, label: 'Início', href: '/', category: 'main' },
+    { icon: BookOpen, label: 'Economia', href: '/economia', category: 'beginner' },
+    { icon: Zap, label: 'Moral', href: '/moral', category: 'beginner' },
+    { icon: Target, label: 'Anti-Aéreo', href: '/anti-aereo', category: 'beginner' },
+    { icon: Rocket, label: 'Mísseis', href: '/misseis', category: 'beginner' },
+    { icon: Users, label: 'Espiões', href: '/espioes', category: 'beginner' },
+    { icon: BarChart3, label: 'Cálculo Dano', href: '/calculo-dano', category: 'advanced' },
+    { icon: HelpCircle, label: 'FAQ', href: '/faq', category: 'tools' },
+    { icon: Calculator, label: 'Calculadora', href: '/calculadora', category: 'tools' },
+    { icon: Globe, label: 'Países', href: '/paises', category: 'tools' },
+    { icon: Building2, label: 'Edifícios', href: '/edificios', category: 'tools' },
+  ];
 
   return (
     <div className="flex min-h-screen bg-background">
       {/* Sidebar */}
-      <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-64 transform bg-sidebar text-sidebar-foreground transition-transform duration-300 ease-in-out ${sidebarClass} md:relative md:translate-x-0`}
-      >
-        <div className="flex h-16 items-center justify-between border-b border-sidebar-border px-6">
-          <h1 className="text-xl font-bold text-sidebar-accent">CON Wiki</h1>
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="md:hidden"
-          >
-            <X size={24} />
-          </button>
+      <div className={`fixed inset-y-0 left-0 z-50 w-20 bg-sidebar border-r border-sidebar-border flex flex-col items-center py-4 gap-2 md:relative md:z-auto transition-all ${sidebarOpen ? 'w-64' : 'w-20'}`}>
+        {/* Logo/Title */}
+        <div className="w-full px-2 mb-4">
+          <Link href="/">
+            <div className="text-center cursor-pointer">
+              <div className="text-accent font-bold text-xs md:text-sm text-center px-1 break-words">
+                {sidebarOpen ? 'CON WIKI' : 'CW'}
+              </div>
+            </div>
+          </Link>
         </div>
 
-        <nav className="overflow-y-auto p-4">
-          {navigationItems.map((item) => (
-            <div key={item.label} className="mb-2">
-              {item.items ? (
-                <>
-                  <button
-                    onClick={() => toggleSection(item.label)}
-                    className="w-full text-left px-4 py-2 rounded hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors font-medium text-sm"
-                  >
-                    {item.label}
-                  </button>
-                  {expandedSections.includes(item.label) && (
-                    <div className="ml-4 space-y-1">
-                      {item.items.map((subitem) => (
-                        <Link
-                          key={subitem.href}
-                          href={subitem.href}
-                          className="block px-4 py-2 text-sm rounded hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors"
-                        >
-                          {subitem.label}
-                        </Link>
-                      ))}
-                    </div>
+        {/* Navigation Items */}
+        <nav className="flex-1 w-full flex flex-col gap-1 px-1">
+          {navigationItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Link key={item.href} href={item.href}>
+                <div className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-sidebar-accent/10 transition-colors cursor-pointer text-sidebar-foreground hover:text-sidebar-accent group" title={item.label}>
+                  <Icon className="w-5 h-5 flex-shrink-0 text-sidebar-accent" />
+                  {sidebarOpen && (
+                    <span className="text-xs font-medium whitespace-nowrap">{item.label}</span>
                   )}
-                </>
-              ) : (
-                <Link
-                  href={item.href}
-                  className="block px-4 py-2 rounded hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors font-medium text-sm"
-                >
-                  {item.label}
-                </Link>
-              )}
-            </div>
-          ))}
+                </div>
+              </Link>
+            );
+          })}
         </nav>
-      </aside>
+
+        {/* Bottom Info */}
+        <div className="w-full px-2 pt-4 border-t border-sidebar-border text-center">
+          <div className="text-xs text-sidebar-foreground/50">
+            {sidebarOpen ? 'SYSTEM STATUS: NOMINAL' : 'OK'}
+          </div>
+        </div>
+      </div>
 
       {/* Main Content */}
-      <div className="flex-1">
+      <div className="flex-1 flex flex-col">
         {/* Header */}
-        <header className="sticky top-0 z-30 border-b border-border bg-card shadow-sm">
-          <div className="flex h-16 items-center justify-between px-4 md:px-8">
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="md:hidden text-foreground"
-            >
-              <Menu size={24} />
-            </button>
-            <h1 className="text-2xl font-bold text-foreground">Conflict of Nations - Guia Brasileiro</h1>
-            <div className="w-6" />
-          </div>
+        <header className="sticky top-0 z-40 bg-card border-b border-border px-4 py-3 flex items-center justify-between md:hidden">
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="p-2 hover:bg-secondary rounded-lg transition-colors text-foreground"
+          >
+            {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+          <h1 className="text-sm font-bold text-accent">CON WIKI</h1>
+          <div className="w-5" />
         </header>
 
-        {/* Content */}
-        <main className="flex-1">
+        {/* Main Content Area */}
+        <main className="flex-1 overflow-auto">
           {children}
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-border bg-card py-8 px-4 md:px-8">
-          <div className="max-w-6xl mx-auto text-center text-muted-foreground text-sm">
-            <p>Conflict of Nations - Guia Brasileiro | Criado pela comunidade de jogadores</p>
-            <p className="mt-2">Baseado no CON's Teacher Wiki</p>
-          </div>
+        <footer className="bg-sidebar border-t border-sidebar-border px-4 py-3 text-center text-xs text-sidebar-foreground/60">
+          <p>© 2024 CONFLICT_INTEL_SYSTEM // CLASSIFIED</p>
         </footer>
       </div>
 
-      {/* Overlay */}
+      {/* Mobile Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black/50 md:hidden"
+          className="fixed inset-0 bg-black/50 md:hidden z-40"
           onClick={() => setSidebarOpen(false)}
         />
       )}

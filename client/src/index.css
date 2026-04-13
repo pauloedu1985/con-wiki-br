@@ -43,77 +43,77 @@
 }
 
 :root {
-  /* Design Estratégico Militar Minimalista */
-  /* Paleta: Azul Profundo (#1a3a52), Cinza Neutro (#2d3436), Laranja Estratégico (#ff6b35) */
-  --primary: #ff6b35;
-  --primary-foreground: #ffffff;
-  --sidebar-primary: #1a3a52;
-  --sidebar-primary-foreground: #ffffff;
-  --chart-1: #ff6b35;
-  --chart-2: #1a3a52;
-  --chart-3: #2d3436;
-  --chart-4: #636e72;
-  --chart-5: #b2bec3;
+  /* Design Tático Militar - Verde-Limão & Azul Escuro */
+  /* Paleta: Verde-Limão (#C4FF00), Azul Escuro (#0a1628), Cinza Tático (#2a4a6a) */
+  --primary: #C4FF00;
+  --primary-foreground: #0a1628;
+  --sidebar-primary: #C4FF00;
+  --sidebar-primary-foreground: #0a1628;
+  --chart-1: #C4FF00;
+  --chart-2: #9FD356;
+  --chart-3: #7AA84D;
+  --chart-4: #557D44;
+  --chart-5: #30523B;
   --radius: 0.4rem;
-  --background: #f5f6f7;
-  --foreground: #1a3a52;
-  --card: #ffffff;
-  --card-foreground: #1a3a52;
-  --popover: #ffffff;
-  --popover-foreground: #1a3a52;
-  --secondary: #2d3436;
-  --secondary-foreground: #ffffff;
-  --muted: #b2bec3;
-  --muted-foreground: #636e72;
-  --accent: #ff6b35;
-  --accent-foreground: #ffffff;
-  --destructive: #d63031;
-  --destructive-foreground: #ffffff;
-  --border: #dfe6e9;
-  --input: #ffffff;
-  --ring: #ff6b35;
-  --sidebar: #1a3a52;
-  --sidebar-foreground: #ffffff;
-  --sidebar-accent: #ff6b35;
-  --sidebar-accent-foreground: #1a3a52;
-  --sidebar-border: #2d3436;
-  --sidebar-ring: #ff6b35;
+  --background: #0a1628;
+  --foreground: #e8f0f8;
+  --card: #1a2f4a;
+  --card-foreground: #e8f0f8;
+  --popover: #1a2f4a;
+  --popover-foreground: #e8f0f8;
+  --secondary: #2a4a6a;
+  --secondary-foreground: #C4FF00;
+  --muted: #4a6a8a;
+  --muted-foreground: #a8c5e0;
+  --accent: #C4FF00;
+  --accent-foreground: #0a1628;
+  --destructive: #ff4444;
+  --destructive-foreground: #0a1628;
+  --border: #2a4a6a;
+  --input: #1a2f4a;
+  --ring: #C4FF00;
+  --sidebar: #0f1f35;
+  --sidebar-foreground: #e8f0f8;
+  --sidebar-accent: #C4FF00;
+  --sidebar-accent-foreground: #0a1628;
+  --sidebar-border: #2a4a6a;
+  --sidebar-ring: #C4FF00;
 }
 
 .dark {
-  /* Modo escuro - Militar */
-  --primary: #ff6b35;
-  --primary-foreground: #ffffff;
-  --sidebar-primary: #1a3a52;
-  --sidebar-primary-foreground: #ffffff;
-  --background: #0d1117;
-  --foreground: #e0e6ed;
-  --card: #1a2332;
-  --card-foreground: #e0e6ed;
-  --popover: #1a2332;
-  --popover-foreground: #e0e6ed;
-  --secondary: #2d3436;
-  --secondary-foreground: #e0e6ed;
-  --muted: #636e72;
-  --muted-foreground: #b2bec3;
-  --accent: #ff6b35;
-  --accent-foreground: #0d1117;
-  --destructive: #ff4757;
-  --destructive-foreground: #ffffff;
-  --border: #2d3436;
-  --input: #1a2332;
-  --ring: #ff6b35;
-  --chart-1: #ff6b35;
-  --chart-2: #1a3a52;
-  --chart-3: #2d3436;
-  --chart-4: #636e72;
-  --chart-5: #b2bec3;
-  --sidebar: #1a3a52;
-  --sidebar-foreground: #ffffff;
-  --sidebar-accent: #ff6b35;
-  --sidebar-accent-foreground: #1a3a52;
-  --sidebar-border: #2d3436;
-  --sidebar-ring: #ff6b35;
+  /* Modo escuro - Tático Militar */
+  --primary: #C4FF00;
+  --primary-foreground: #0a1628;
+  --sidebar-primary: #C4FF00;
+  --sidebar-primary-foreground: #0a1628;
+  --background: #0a1628;
+  --foreground: #e8f0f8;
+  --card: #1a2f4a;
+  --card-foreground: #e8f0f8;
+  --popover: #1a2f4a;
+  --popover-foreground: #e8f0f8;
+  --secondary: #2a4a6a;
+  --secondary-foreground: #C4FF00;
+  --muted: #4a6a8a;
+  --muted-foreground: #a8c5e0;
+  --accent: #C4FF00;
+  --accent-foreground: #0a1628;
+  --destructive: #ff4444;
+  --destructive-foreground: #0a1628;
+  --border: #2a4a6a;
+  --input: #1a2f4a;
+  --ring: #C4FF00;
+  --chart-1: #C4FF00;
+  --chart-2: #9FD356;
+  --chart-3: #7AA84D;
+  --chart-4: #557D44;
+  --chart-5: #30523B;
+  --sidebar: #0f1f35;
+  --sidebar-foreground: #e8f0f8;
+  --sidebar-accent: #C4FF00;
+  --sidebar-accent-foreground: #0a1628;
+  --sidebar-border: #2a4a6a;
+  --sidebar-ring: #C4FF00;
 }
 
 @layer base {
