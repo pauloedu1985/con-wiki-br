@@ -5,30 +5,46 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-
+import Layout from "./components/Layout";
+import Economia from "./pages/Economia";
+import Moral from "./pages/Moral";
+import AntiAereo from "./pages/AntiAereo";
+import Misseis from "./pages/Misseis";
+import Espioes from "./pages/Espioes";
+import CalculoDano from "./pages/CalculoDano";
+import FAQ from "./pages/FAQ";
+import Calculadora from "./pages/Calculadora";
+import Paises from "./pages/Paises";
+import Edificios from "./pages/Edificios";
 
 function Router() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <Layout>
+      <Switch>
+        <Route path={"/"} component={Home} />
+        <Route path={"/economia"} component={Economia} />
+        <Route path={"/moral"} component={Moral} />
+        <Route path={"/anti-aereo"} component={AntiAereo} />
+        <Route path={"/misseis"} component={Misseis} />
+        <Route path={"/espioes"} component={Espioes} />
+        <Route path={"/calculo-dano"} component={CalculoDano} />
+        <Route path={"/faq"} component={FAQ} />
+        <Route path={"/calculadora"} component={Calculadora} />
+        <Route path={"/paises"} component={Paises} />
+        <Route path={"/edificios"} component={Edificios} />
+        <Route path={"/404"} component={NotFound} />
+        {/* Final fallback route */}
+        <Route component={NotFound} />
+      </Switch>
+    </Layout>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
         defaultTheme="light"
-        // switchable
       >
         <TooltipProvider>
           <Toaster />
