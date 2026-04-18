@@ -5,6 +5,8 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import WikiIndex from "./pages/WikiIndex";
+import WikiSection from "./pages/WikiSection";
 import Layout from "./components/Layout";
 import Economia from "./pages/Economia";
 import Moral from "./pages/Moral";
@@ -22,6 +24,8 @@ function Router() {
     <Layout>
       <Switch>
         <Route path={"/"} component={Home} />
+        <Route path={"/wiki"} component={WikiIndex} />
+        <Route path={"/wiki/:id"} component={WikiSection} />
         <Route path={"/economia"} component={Economia} />
         <Route path={"/moral"} component={Moral} />
         <Route path={"/anti-aereo"} component={AntiAereo} />
@@ -44,7 +48,8 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
-        defaultTheme="light"
+        defaultTheme="dark"
+        // switchable
       >
         <TooltipProvider>
           <Toaster />

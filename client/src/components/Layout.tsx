@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
-import { Menu, X, Home, BookOpen, Zap, Target, Rocket, Users, BarChart3, HelpCircle, Calculator, Globe, Building2 } from 'lucide-react';
+import { Menu, X, Home, BookOpen, Zap, Target, Rocket, Users, BarChart3, HelpCircle, Calculator, Globe, Building2, Book } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,6 +11,7 @@ export default function Layout({ children }: LayoutProps) {
 
   const navigationItems = [
     { icon: Home, label: 'Início', href: '/', category: 'main' },
+    { icon: Book, label: 'Wiki', href: '/wiki', category: 'main' },
     { icon: BookOpen, label: 'Economia', href: '/economia', category: 'beginner' },
     { icon: Zap, label: 'Moral', href: '/moral', category: 'beginner' },
     { icon: Target, label: 'Anti-Aéreo', href: '/anti-aereo', category: 'beginner' },
@@ -32,7 +33,7 @@ export default function Layout({ children }: LayoutProps) {
           <Link href="/">
             <div className="text-center cursor-pointer">
               <div className="text-accent font-bold text-xs md:text-sm text-center px-1 break-words">
-                {sidebarOpen ? 'CON WIKI' : 'CW'}
+                {sidebarOpen ? 'CON WIKI' : '⚔️'}
               </div>
             </div>
           </Link>
