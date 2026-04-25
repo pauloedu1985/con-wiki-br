@@ -23,6 +23,7 @@ export default function Layout({ children }: LayoutProps) {
     { icon: Calculator, label: 'Calculadora', href: '/calculadora', category: 'tools' },
     { icon: Globe, label: 'Países', href: '/paises', category: 'tools' },
     { icon: Building2, label: 'Edifícios', href: '/edificios', category: 'tools' },
+    { icon: Building2, label: 'Edifícios Prov.', href: '/edificios-provincia', category: 'tools' },
   ];
 
   return (

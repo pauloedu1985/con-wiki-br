@@ -18,6 +18,7 @@ import FAQ from "./pages/FAQ";
 import Calculadora from "./pages/Calculadora";
 import Paises from "./pages/Paises";
 import Edificios from "./pages/Edificios";
+import EdificiosProvincia from "./pages/EdificiosProvincia";
 
 function Router() {
   return (
@@ -36,6 +37,7 @@ function Router() {
         <Route path={"/calculadora"} component={Calculadora} />
         <Route path={"/paises"} component={Paises} />
         <Route path={"/edificios"} component={Edificios} />
+        <Route path={"/edificios-provincia"} component={EdificiosProvincia} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
