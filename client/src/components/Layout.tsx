@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
-import { Menu, X, Home, BookOpen, Zap, Target, Rocket, Users, BarChart3, HelpCircle, Calculator, Globe, Building2, Book, ChevronLeft } from 'lucide-react';
+import { Menu, X, Home, BookOpen, Zap, Target, Rocket, Users, BarChart3, HelpCircle, Calculator, Globe, Building2, Book, ChevronLeft, Sword } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -24,6 +24,7 @@ export default function Layout({ children }: LayoutProps) {
     { icon: Globe, label: 'Países', href: '/paises', category: 'tools' },
     { icon: Building2, label: 'Edifícios', href: '/edificios', category: 'tools' },
     { icon: Building2, label: 'Edifícios Prov.', href: '/edificios-provincia', category: 'tools' },
+    { icon: Sword, label: 'Unidades', href: '/unidades', category: 'tools' },
   ];
 
   return (
