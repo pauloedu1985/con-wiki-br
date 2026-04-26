@@ -20,6 +20,7 @@ import Paises from "./pages/Paises";
 import Edificios from "./pages/Edificios";
 import EdificiosProvincia from "./pages/EdificiosProvincia";
 import Unidades from "./pages/Unidades";
+import Estrategias from "./pages/Estrategias";
 
 function Router() {
   return (
@@ -40,6 +41,7 @@ function Router() {
         <Route path={"/edificios"} component={Edificios} />
         <Route path={"/edificios-provincia"} component={EdificiosProvincia} />
         <Route path={"/unidades"} component={Unidades} />
+        <Route path={"/estrategias"} component={Estrategias} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
