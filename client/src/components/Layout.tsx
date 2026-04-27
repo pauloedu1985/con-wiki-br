@@ -42,17 +42,17 @@ export default function Layout({ children }: LayoutProps) {
       items: [
         { icon: BarChart3, label: 'Cálculo Dano', href: '/calculo-dano' },
         { icon: Compass, label: 'Estratégias', href: '/estrategias' },
+        { icon: Sword, label: 'Unidades', href: '/unidades' },
+        { icon: Globe, label: 'Países', href: '/paises' },
+        { icon: Building2, label: 'Edifícios', href: '/edificios' },
+        { icon: Building2, label: 'Edif. Prov.', href: '/edificios-provincia' },
+        { icon: HelpCircle, label: 'FAQ', href: '/faq' },
       ]
     },
     {
       title: 'FERRAMENTAS',
       items: [
         { icon: Calculator, label: 'Calculadora', href: '/calculadora' },
-        { icon: HelpCircle, label: 'FAQ', href: '/faq' },
-        { icon: Sword, label: 'Unidades', href: '/unidades' },
-        { icon: Globe, label: 'Países', href: '/paises' },
-        { icon: Building2, label: 'Edifícios', href: '/edificios' },
-        { icon: Building2, label: 'Edif. Prov.', href: '/edificios-provincia' },
       ]
     }
   ];
