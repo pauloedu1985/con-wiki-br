@@ -110,3 +110,12 @@ temp/
 
 # Manus version file (auto-generated, not part of source)
 client/public/__manus__/version.json
+
+# Secrets and credentials (CRITICAL - NEVER COMMIT)
+.git-credentials
+*.key
+*.pem
+secrets/
+.secrets/
+.env.secrets
+.env.*.secrets
